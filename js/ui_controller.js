@@ -6,9 +6,15 @@ var UIController = {
     
     search_json = JSON.parse( search_json );
     
+    i = 0;
+    
     $(search_json.data.results).each( function(index, value)  {
+      
+      i = i + 1;
+      
       //alert(value.domain);
       result = $(".result-container").clone();
+      
       $(result).removeClass("result-container");
       $(result).find(".result-title").html( value.title );
       $(result).find(".result-description").html( value.description );
@@ -29,13 +35,33 @@ var UIController = {
       $(result).find(".result-url").html( value.aggregate_link );
       $(result).find(".result-url").attr("href", value.aggregate_link );
 
+      $(result).find(".result-graph").attr("id", "graph_" + i );
+      
       $(result).addClass("postit");
 
       container.append( result );
+      
+      UIController.draw_chart( value.aggregate_link, "graph_" + i );
 
     });
+  },
+    
+  draw_chart : function( aggregate_link, graph_id ) {
+      var data = google.visualization.arrayToDataTable([
+        ['Year', 'Sales', 'Expenses'],
+        ['2004',  1000,      400],
+        ['2005',  1170,      460],
+        ['2006',  660,       1120],
+        ['2007',  1030,      540]
+      ]);
+
+      var options = {
+        title: 'Company Performance'
+      };
+
+      var chart = new google.visualization.LineChart( document.getElementById( graph_id ) );
+      chart.draw(data, options);
+    }
   
-  
-  }
 
 }

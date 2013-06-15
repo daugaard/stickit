@@ -109,8 +109,14 @@
                 <td class="result-language"></td>
               </tr>
             </table>
-            <p><br/><a onclick="test(this);">Show/hide summary</a></p>
+            
+            <p><br/><a onclick="toggle_graph(this);">Show/hide Popularity Graph</a></p>
+            <div class="result-graph"></div>        
+            
+            
+            <p><br/><a onclick="toggle_summary(this);">Show/hide Summary</a></p>
             <p class="result-summary"></p>        
+            
             <p class="small">
               <strong>Stick-it</strong> to your social media stream:<br/>
                 <a class="btn btn-primary share-link"><i class="icon-share icon-white"></i> Facebook</a> 
@@ -137,18 +143,24 @@
     <script src="/js/bootstrap.js"></script>
     <script src="/js/backend.js"></script>
     <script src="/js/ui_controller.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min.js"> </script>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
 
 
     <script>
     
-      function perform_search() {
+      google.load("visualization", "1", {packages:["corechart"]});
       
+      function perform_search() {     
         query = $("#query").val();
         UIController.load_search_results( search( query ) );
-      
       }
       
-      function test( a ) {
+      function toggle_graph(a) {
+        $(a).parent().parent().find('.result-graph').toggle(500);      
+      }
+      
+      function toggle_summary( a ) {
         $(a).parent().parent().find('.result-summary').toggle(500);
       
       }
