@@ -4,14 +4,24 @@ input[type="text"].search {
   width: 600px;
 }
 
+.stickit {
+  font-size: 150%;
+  font-weight: bolder;
+}
+
+.center {
+  text-align: center;
+}
 
 .result-container {
   display: none;
+}
 
+.carosusel-right-size {
+  width: 400px;
 }
 
 .postit {    
-  width: 275px;    
   margin: 25px;    
   padding: 15px;
   position:relative;   
@@ -19,6 +29,10 @@ input[type="text"].search {
   border-bottom-right-radius: 60px 5px;
   display:inline-block;    
   background: rgb(255,255,136); /* Old browsers */
+}
+
+.postit > p {
+  text-align: left;
 }
 
 .postit:after {     

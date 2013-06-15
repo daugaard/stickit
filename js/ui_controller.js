@@ -37,7 +37,7 @@ var UIController = {
 
       $(result).find(".result-graph").attr("id", "graph_" + i );
       
-      $(result).addClass("postit");
+      $(result).find(".span10").addClass("postit");
 
       container.append( result );
       
