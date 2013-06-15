@@ -47,21 +47,16 @@ var UIController = {
   },
     
   draw_chart : function( aggregate_link, graph_id ) {
-      var data = google.visualization.arrayToDataTable([
-        ['Year', 'Sales', 'Expenses'],
-        ['2004',  1000,      400],
-        ['2005',  1170,      460],
-        ['2006',  660,       1120],
-        ['2007',  1030,      540]
-      ]);
+
+      clickData = clicksData(aggregate_link);
+      var data = google.visualization.arrayToDataTable(clickData);
 
       var options = {
-        title: 'Company Performance'
+        title: 'Number of Clicks',
+        backgroundColor: '#FFFF88'
       };
 
       var chart = new google.visualization.LineChart( document.getElementById( graph_id ) );
       chart.draw(data, options);
     }
-  
-
 }
