@@ -92,6 +92,8 @@
 
      <div class="row-fluid result-container">
           <div class="span12">
+            <button class="close" onclick="close_post(this)" style="float: right" id="close-button"> &times;</button>
+
             <h4 class="result-title">Result 1</h4>
             <p class="result-description">Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
             <p><a href="" class="result-url" target="_new">http://awesome.com</a></p>
@@ -140,12 +142,14 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
-    <script src="/js/bootstrap.js"></script>
-    <script src="/js/backend.js"></script>
-    <script src="/js/ui_controller.js"></script>
+
     <script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min.js"> </script>
     <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.0.0/moment.min.js"> </script>
 
+        <script src="/js/bootstrap.js"></script>
+    <script src="/js/backend.js"></script>
+    <script src="/js/ui_controller.js"></script>
 
     <script>
     
@@ -162,8 +166,13 @@
       
       function toggle_summary( a ) {
         $(a).parent().parent().find('.result-summary').toggle(500);
-      
       }
+
+      function close_post(a) {
+        $(a).parent().parent().hide('500');
+      }
+
+
         
     </script>
 
