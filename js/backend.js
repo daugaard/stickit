@@ -20,7 +20,7 @@
       async: false,
       data: {
         access_token: ACCESS_TOKEN,
-        q: query
+        query: query
       }
     })).responseText;
   };

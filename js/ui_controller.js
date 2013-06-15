@@ -4,6 +4,8 @@ var UIController = {
   
     container = $(".results_container").html("");
     
+    search_json = JSON.parse( search_json );
+    
     $(search_json.data.results).each( function(index, value)  {
       //alert(value.domain);
       result = $(".result-container").clone();

@@ -79,9 +79,9 @@
       <div class="jumbotron">
         <h2>Find trending content, please ...</h2>
         <p class="lead">
-          <input type="text" length="30" class="search"/>
+          <input type="text" length="30" id="query" class="search"/>
         </p>
-        <a class="btn btn-large btn-success" href="#">Get premium content</a>
+        <a class="btn btn-large btn-success" href="#" onclick="perform_search();">Get premium content</a>
         <a class="btn btn-large btn-success" href="#" onclick="test();">Soren Test Button</a>
       </div>
 
@@ -121,10 +121,20 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
     <script src="/js/bootstrap.js"></script>
+    <script src="/js/backend.js"></script>
     <script src="/js/ui_controller.js"></script>
 
 
     <script>
+    
+      function perform_search() {
+      
+        query = $("#query").val();
+        UIController.load_search_results( search( query ) );
+      
+      }
+    
+    
       function test() {
         UIController.load_search_results(
           {
