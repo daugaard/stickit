@@ -5,7 +5,7 @@ input[type="text"].search {
 }
 
 
-.no-show {
+.result-container {
   display: none;
 
 }
