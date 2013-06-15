@@ -1,8 +1,8 @@
 var UIController = {
   
-  load_search_results = function( search_json ){
+  load_search_results : function( search_json ){
   
-  
+    alert("Her!");
   }
 
 }
